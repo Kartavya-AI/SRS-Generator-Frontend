@@ -17,32 +17,38 @@ const CURRICULUMS = [
   "CBSE", "ICSE", "IB", "State Board", "IGCSE", "Cambridge", "Montessori"
 ];
 
+interface School {
+  schoolName: string;
+  Location: string;
+  City: string;
+  Curriculum: string;
+  Grade: string;
+  Fees: string;
+  Remarks: string;
+}
+
 export default function SearchSchoolsPage() {
-  const [location, setLocation] = useState("");
-  const [grade, setGrade] = useState("");
-  const [curriculum, setCurriculum] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState<any[]>([]);
-  const [error, setError] = useState("");
+  const [location, setLocation] = useState<string>("");
+  const [grade, setGrade] = useState<string>("");
+  const [curriculum, setCurriculum] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [results, setResults] = useState<School[]>([]);
+  const [error, setError] = useState<string>("");
 
   const handleSearch = async () => {
     setLoading(true);
     setError("");
     try {
-      const response = await axios.post(
+      const response = await axios.post<{ data: string }>(
         "https://school-finder-977121587860.asia-south2.run.app/search-schools",
-        {
-          location,
-          grade,
-          curriculum,
-        }
+        { location, grade, curriculum }
       );
-
+      console.log("response :", response);
       const raw = response.data.data;
       const jsonStart = raw.indexOf("```json");
       const jsonEnd = raw.lastIndexOf("```");
       const extracted = raw.substring(jsonStart + 7, jsonEnd);
-      const parsed = JSON.parse(extracted);
+      const parsed: School[] = JSON.parse(extracted);
       setResults(parsed);
     } catch (err) {
       console.error(err);

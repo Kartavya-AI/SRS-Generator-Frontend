@@ -28,7 +28,7 @@ const Logo = () => (
     </Link>
 );
 
-function header() {
+function Header() {
     const [open, setOpen] = useState(false);
     return (
         <header className="z-20 fixed top-0 left-0 right-0 px-4 md:px-36 h-16 bg-zinc-200/30 backdrop-blur-sm">
@@ -91,4 +91,4 @@ function header() {
     );
 }
 
-export default header;
+export default Header;
