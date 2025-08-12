@@ -21,8 +21,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "School Search Platform",
-  description: "An AI-powered platform to help parents discover, compare, and apply to the best schools for their children—based on personalized preferences, verified reviews, and real-time data.",
+  title: "Entrepreneur Platform",
+  description: " Your AI-powered GTM strategist — helping founders analyze markets, define customer profiles, craft positioning, and execute data-driven go-to-market plans for faster, smarter startup launches.",
 };
 
 export default function RootLayout({
