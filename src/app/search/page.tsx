@@ -6,53 +6,55 @@ import VantaFog from "@/components/VantaFog";
 import { RainbowButton } from "@/components/magicui/rainbow-button";
 import { AuroraText } from "@/components/magicui/aurora-text";
 
-const GRADES = [
-  "Nursery", "Pre-KG", "LKG", "UKG",
-  "1st Grade", "2nd Grade", "3rd Grade", "4th Grade", "5th Grade",
-  "6th Grade", "7th Grade", "8th Grade", "9th Grade",
-  "10th Grade", "11th Grade", "12th Grade",
-];
-
-const CURRICULUMS = [
-  "CBSE", "ICSE", "IB", "State Board", "IGCSE", "Cambridge", "Montessori"
-];
-
-interface School {
-  schoolName: string;
-  Location: string;
-  City: string;
-  Curriculum: string;
-  Grade: string;
-  Fees: string;
-  Remarks: string;
+interface GTMResult {
+  strategy_overview: string;
+  market_analysis: string;
+  customer_profiles: string[];
+  value_proposition: string;
+  acquisition_channels: string[];
+  outreach_plan: string;
+  growth_initiatives: string[];
+  optimization_tips: string;
 }
 
-export default function SearchSchoolsPage() {
-  const [location, setLocation] = useState<string>("");
-  const [grade, setGrade] = useState<string>("");
-  const [curriculum, setCurriculum] = useState<string>("");
+export default function GTMStrategyPage() {
+  const [startupIdea, setStartupIdea] = useState<string>("");
+  const [targetMarket, setTargetMarket] = useState<string>("");
+  const [teamComposition, setTeamComposition] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [results, setResults] = useState<School[]>([]);
+  const [result, setResult] = useState<GTMResult | null>(null);
   const [error, setError] = useState<string>("");
 
-  const handleSearch = async () => {
+  const handleGenerate = async () => {
     setLoading(true);
     setError("");
+    setResult(null);
+
     try {
       const response = await axios.post<{ data: string }>(
-        "https://school-finder-977121587860.asia-south2.run.app/search-schools",
-        { location, grade, curriculum }
+        "https://enterpreneaur-977121587860.asia-south2.run.app/run-crew",
+        {
+          startup_idea: startupIdea,
+          target_market: targetMarket,
+          team_composition: teamComposition,
+        }
       );
-      console.log("response :", response);
+
+      console.log("API Response:", response.data);
+
       const raw = response.data.data;
       const jsonStart = raw.indexOf("```json");
       const jsonEnd = raw.lastIndexOf("```");
-      const extracted = raw.substring(jsonStart + 7, jsonEnd);
-      const parsed: School[] = JSON.parse(extracted);
-      setResults(parsed);
+      const extracted =
+        jsonStart !== -1 && jsonEnd !== -1
+          ? raw.substring(jsonStart + 7, jsonEnd)
+          : raw;
+
+      const parsed: GTMResult = JSON.parse(extracted);
+      setResult(parsed);
     } catch (err) {
       console.error(err);
-      setError("Failed to fetch schools. Please try again.");
+      setError("Failed to generate GTM strategy. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -63,73 +65,90 @@ export default function SearchSchoolsPage() {
       <VantaFog />
       <div className="max-w-5xl mx-auto p-6 mt-10 space-y-6">
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-primary">
-          Discover the Right <AuroraText>School</AuroraText> for Your Child
+          Generate Your <AuroraText>Go-To-Market</AuroraText> Strategy
         </h1>
+        <p className="text-gray-600">
+          Empower your startup with a tailored GTM plan in minutes. Just provide a few
+          details about your idea, target audience, and team.
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+        {/* Input Fields */}
+        <div className="grid grid-cols-1 gap-4 mt-8">
           <input
             type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            value={startupIdea}
+            onChange={(e) => setStartupIdea(e.target.value)}
             className="p-4 border rounded-md"
-            placeholder="Location (e.g., Bangalore)"
+            placeholder="Startup Idea (e.g., AI-powered resume enhancer)"
           />
 
-          <select
-            value={grade}
-            onChange={(e) => setGrade(e.target.value)}
+          <input
+            type="text"
+            value={targetMarket}
+            onChange={(e) => setTargetMarket(e.target.value)}
             className="p-4 border rounded-md"
-          >
-            <option value="">Select Grade</option>
-            {GRADES.map((g) => (
-              <option key={g} value={g}>{g}</option>
-            ))}
-          </select>
+            placeholder="Target Market (e.g., Recent graduates in tech)"
+          />
 
-          <select
-            value={curriculum}
-            onChange={(e) => setCurriculum(e.target.value)}
+          <input
+            type="text"
+            value={teamComposition}
+            onChange={(e) => setTeamComposition(e.target.value)}
             className="p-4 border rounded-md"
-          >
-            <option value="">Select Curriculum</option>
-            {CURRICULUMS.map((c) => (
-              <option key={c} value={c}>{c}</option>
-            ))}
-          </select>
+            placeholder="Team Composition (e.g., 3 engineers, 1 career coach)"
+          />
         </div>
 
-        <RainbowButton variant="outline" onClick={handleSearch} disabled={loading}>
-          {loading ? "Searching..." : "Search Schools"}
+        {/* Generate Button */}
+        <RainbowButton
+          variant="outline"
+          onClick={handleGenerate}
+          disabled={loading}
+        >
+          {loading ? "Generating..." : "Generate GTM Strategy"}
         </RainbowButton>
 
         {error && <p className="text-red-500 font-medium">{error}</p>}
 
-        {results.length > 0 && (
+        {/* Display Results */}
+        {result && (
           <div className="mt-10 space-y-6">
-            <h2 className="text-2xl font-semibold">🎓 Top Matching Schools</h2>
-            <div className="space-y-4">
-              {results.map((school, idx) => (
-                <div
-                  key={idx}
-                  className="border p-4 rounded-md shadow-sm bg-white space-y-1"
-                >
-                  <h3 className="text-xl font-bold text-blue-700">
-                    {school.schoolName}
-                  </h3>
-                  <p className="text-gray-700">
-                    <strong>Location:</strong> {school.Location}, {school.City}
-                  </p>
-                  <p>
-                    <strong>Curriculum:</strong> {school.Curriculum} | <strong>Grade:</strong> {school.Grade}
-                  </p>
-                  <p>
-                    <strong>Fees:</strong> {school.Fees}
-                  </p>
-                  <p className="text-sm text-gray-600 italic">
-                    {school.Remarks}
-                  </p>
-                </div>
-              ))}
+            <h2 className="text-2xl font-semibold">🚀 Your GTM Strategy</h2>
+            <div className="border p-4 rounded-md shadow-sm bg-white space-y-4">
+              <p><strong>Strategy Overview:</strong> {result.strategy_overview}</p>
+              <p><strong>Market Analysis:</strong> {result.market_analysis}</p>
+              <p><strong>Value Proposition:</strong> {result.value_proposition}</p>
+
+              <div>
+                <strong>Customer Profiles:</strong>
+                <ul className="list-disc list-inside">
+                  {result.customer_profiles.map((profile, idx) => (
+                    <li key={idx}>{profile}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <strong>Acquisition Channels:</strong>
+                <ul className="list-disc list-inside">
+                  {result.acquisition_channels.map((channel, idx) => (
+                    <li key={idx}>{channel}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <p><strong>Outreach Plan:</strong> {result.outreach_plan}</p>
+
+              <div>
+                <strong>Growth Initiatives:</strong>
+                <ul className="list-disc list-inside">
+                  {result.growth_initiatives.map((initiative, idx) => (
+                    <li key={idx}>{initiative}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <p><strong>Optimization Tips:</strong> {result.optimization_tips}</p>
             </div>
           </div>
         )}

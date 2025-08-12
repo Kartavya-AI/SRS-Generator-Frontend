@@ -8,10 +8,13 @@ function Footer() {
                     {/* Logo + Description */}
                     <div>
                         <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                            School Search Assistant
+                            Entrepreneur Copilot
                         </h3>
                         <p className="mt-2 text-sm leading-relaxed">
-                            An AI-powered platform to help parents discover, compare, and apply to the best schools for their children—based on personalized preferences, verified reviews, and real-time data.
+                            Your AI-powered GTM strategist — helping founders
+                            analyze markets, define customer profiles, craft
+                            positioning, and execute data-driven go-to-market
+                            plans for faster, smarter startup launches.
                         </p>
                     </div>
 
@@ -28,17 +31,17 @@ function Footer() {
                             </li>
                             <li>
                                 <a href="#" className="hover:underline">
-                                    Search Schools
+                                    GTM Strategy Builder
                                 </a>
                             </li>
                             <li>
                                 <a href="#" className="hover:underline">
-                                    Compare
+                                    Market Insights
                                 </a>
                             </li>
                             <li>
                                 <a href="#" className="hover:underline">
-                                    Counseling
+                                    Contact
                                 </a>
                             </li>
                         </ul>
@@ -71,7 +74,7 @@ function Footer() {
 
                 {/* Bottom note */}
                 <div className="mt-10 text-center text-xs text-gray-500 dark:text-gray-500">
-                    © {new Date().getFullYear()} School Search Assistant. All rights reserved.
+                    © {new Date().getFullYear()} Entrepreneur Copilot. All rights reserved.
                 </div>
             </footer>
         </div>
@@ -79,4 +82,3 @@ function Footer() {
 }
 
 export default Footer;
-
