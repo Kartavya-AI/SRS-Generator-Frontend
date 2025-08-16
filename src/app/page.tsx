@@ -9,7 +9,7 @@ import VantaFog from "@/components/VantaFog";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import Link from "next/link";
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
-import gtmIllustration from "../../public/images/2df63f_cf537ca0b8254df79a53dae712b84510~mv2.avif";
+import srsIllustration from "../../public/images/Screenshot 2025-08-16 100427.png";
 import { CardContent, CardHeader } from "@/components/ui/card";
 import { MagicCard } from "@/components/magicui/magic-card";
 import profile from '../../public/images/profile.jpg'
@@ -23,36 +23,37 @@ import { Marquee } from "@/components/magicui/marquee";
 
 const reviews = [
     {
-        name: "Arjun Malhotra",
-        username: "@arjun_founder",
-        body: "Entrepreneur Copilot helped me validate my startup idea and build a go-to-market plan in under an hour. Absolute game-changer for solo founders!"
+        name: "Rahul Mehta",
+        username: "@rahul_pm",
+        body: "The SRS Generator saved me countless hours. Instead of manually writing requirement docs, I had a polished draft ready in minutes."
     },
     {
-        name: "Neha Gupta",
-        username: "@neha_g",
-        body: "The AI-driven customer segmentation was spot-on. We discovered niche audiences we had completely overlooked."
+        name: "Ananya Sharma",
+        username: "@ananya_dev",
+        body: "The clarity and structure of the generated SRS was impressive. It helped our dev team avoid confusion and start building faster."
     },
     {
-        name: "Vikram Rao",
-        username: "@vikram_startup",
-        body: "Instead of spending weeks on market research, I had actionable insights and channel strategies ready in a single session."
+        name: "Mohammed Ali",
+        username: "@ali_product",
+        body: "As a product manager, I loved how the platform captured both functional and non-functional requirements with precision."
     },
     {
-        name: "Sofia Khan",
-        username: "@sofia_k",
-        body: "We pivoted our product positioning based on the competitive analysis from Entrepreneur Copilot — and saw our conversions double."
+        name: "Priya Nair",
+        username: "@priyanair_uiux",
+        body: "The auto-generated diagrams and well-defined scope made client presentations so much easier. It feels like having a BA on the team."
     },
     {
-        name: "Karan Patel",
-        username: "@karanp_growth",
-        body: "The outreach and content suggestions saved our team days of brainstorming. It felt like having a full-time GTM strategist in-house."
+        name: "Siddharth Jain",
+        username: "@sid_jain",
+        body: "Earlier, drafting an SRS would take us weeks. With this platform, we can generate detailed requirement docs within a day."
     },
     {
-        name: "Emily Chen",
-        username: "@emily_builds",
-        body: "As a first-time founder, I had no idea where to start. Copilot walked me through every step and gave me the confidence to launch."
+        name: "Emily Rodriguez",
+        username: "@emily_rodriguez",
+        body: "The AI suggestions for edge cases and constraints were spot-on. It made our document far more comprehensive than manual drafting."
     }
 ];
+
 
 
 const firstRow = reviews.slice(0, reviews.length / 2);
@@ -101,36 +102,37 @@ const ReviewCard = ({
 
 const steps = [
     {
-        title: "Step 1: Describe Your Startup Idea",
+        title: "Step 1: Enter Project Details",
         description:
-            "Begin by sharing your business concept, target market, and current stage. The Copilot uses this to tailor a GTM strategy specifically for you."
+            "Provide the project title, description, and basic information. This sets the foundation for generating your tailored SRS document."
     },
     {
-        title: "Step 2: Analyze Market & Competition",
+        title: "Step 2: Define Functional Requirements",
         description:
-            "The AI scans real-time market data, trends, and competitors to reveal gaps, opportunities, and positioning angles."
+            "List the core features, modules, and system behaviors you expect. The platform structures these into formal functional requirements."
     },
     {
-        title: "Step 3: Define Ideal Customer Profiles",
+        title: "Step 3: Specify Non-Functional Requirements",
         description:
-            "Get precise audience segments based on demographics, behavior, and buying patterns — so your targeting is laser-focused."
+            "Add constraints like performance, security, usability, and scalability — ensuring your SRS covers all quality attributes."
     },
     {
-        title: "Step 4: Identify Core Value Proposition",
+        title: "Step 4: Identify System Users & Roles",
         description:
-            "Clarify your unique selling points and messaging that will resonate most with your chosen audience."
+            "Outline different user types (e.g., admin, customer, staff) and their expected interactions with the system."
     },
     {
-        title: "Step 5: Build Your Acquisition Plan",
+        title: "Step 5: Generate Diagrams & Models",
         description:
-            "Receive actionable recommendations for channels, partnerships, and campaigns to drive awareness and conversions."
+            "Automatically create use-case diagrams, data flow diagrams, and other visuals to enhance clarity in your SRS."
     },
     {
-        title: "Step 6: Launch & Track Progress",
+        title: "Step 6: Review & Export SRS",
         description:
-            "Execute your GTM strategy with built-in progress tracking, automated feedback, and continuous optimization suggestions."
+            "Preview the complete document, make edits if needed, and export it in professional formats like PDF or DOCX."
     }
 ];
+
 
 
 export default function Home() {
@@ -138,47 +140,49 @@ export default function Home() {
     return (
         <main className="mx-auto">
             <VantaFog />
-           <section className="mt-20 px-4 md:px-36 flex flex-col justify-center items-center text-center">
-    <div className="group mb-5 relative mx-auto flex items-center justify-center rounded-full px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f]">
-        <span
-            className={cn(
-                "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]"
-            )}
-            style={{
-                WebkitMask:
-                    "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                WebkitMaskComposite: "destination-out",
-                mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                maskComposite: "subtract",
-                WebkitClipPath: "padding-box",
-            }}
-        />
-        🚀
-        <hr className="mx-2 h-4 w-px shrink-0 bg-neutral-500" />
-        <AnimatedGradientText className="text-sm font-medium">
-            AI-Powered GTM Strategy Builder for Startup Founders
-        </AnimatedGradientText>
-        <ChevronRight className="ml-1 size-4 stroke-neutral-500 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-    </div>
+          <section className="mt-20 px-4 md:px-36 flex flex-col justify-center items-center text-center">
+  <div className="group mb-5 relative mx-auto flex items-center justify-center rounded-full px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f]">
+    <span
+      className={cn(
+        "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#40c9ff]/50 via-[#9c40ff]/50 to-[#40c9ff]/50 bg-[length:300%_100%] p-[1px]"
+      )}
+      style={{
+        WebkitMask:
+          "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+        WebkitMaskComposite: "destination-out",
+        mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+        maskComposite: "subtract",
+        WebkitClipPath: "padding-box",
+      }}
+    />
+    📑
+    <hr className="mx-2 h-4 w-px shrink-0 bg-neutral-500" />
+    <AnimatedGradientText className="text-sm font-medium">
+      AI-Powered SRS Generator for Developers & Teams
+    </AnimatedGradientText>
+    <ChevronRight className="ml-1 size-4 stroke-neutral-500 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+  </div>
 
-    <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-primary mb-6">
-        Launch Your Startup <AuroraText>Faster & Smarter</AuroraText>  
-        with AI-Driven Go-To-Market Strategies
-    </h1>
+  <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-primary mb-6">
+    Create <AuroraText>SRS Documents</AuroraText>{" "}  
+    in Minutes, Not Days
+  </h1>
 
-    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8">
-        Instantly generate, refine, and execute a robust GTM plan tailored to your business idea — from market analysis and ideal customer profiles to acquisition channels and growth initiatives.
-    </p>
+  <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8">
+    Automatically generate comprehensive Software Requirement Specification (SRS) 
+    documents tailored to your project — from functional requirements and system 
+    features to diagrams and structured reports.
+  </p>
 
-    <div className="">
-        <Link href="/search">
-            <ShimmerButton className="shadow-2xl">
-                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-                    Build My GTM Plan
-                </span>
-            </ShimmerButton>
-        </Link>
-    </div>
+  <div>
+    <Link href="/generate">
+      <ShimmerButton className="shadow-2xl">
+        <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+          Generate My SRS
+        </span>
+      </ShimmerButton>
+    </Link>
+  </div>
 </section>
 
 
@@ -212,36 +216,39 @@ export default function Home() {
                 </div>
             </section>
 
-          <section className="flex mt-10 flex-col md:flex-row items-center justify-between px-4 md:px-36 py-12">
-    {/* Text Section */}
-    <div className="md:w-1/2 text-center md:text-left space-y-4 order-2 md:order-1">
-        <h2 className="text-3xl md:text-5xl font-bold text-primary">
-            Build and Launch Your Go-To-Market Strategy — Powered by AI.
-        </h2>
-        <p className="text-lg text-muted-foreground">
-            Entrepreneur Copilot helps you analyze your market, define your ideal customer, and create a step-by-step GTM plan — so you can launch faster, smarter, and with higher ROI.
-        </p>
-        <Link href="/search">
-            <ShimmerButton className="shadow-2xl">
-                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-                    Build My GTM Plan
-                </span>
-            </ShimmerButton>
-        </Link>
-    </div>
+         <section className="flex mt-10 flex-col md:flex-row items-center justify-between px-4 md:px-36 py-12">
+  {/* Text Section */}
+  <div className="md:w-1/2 text-center md:text-left space-y-4 order-2 md:order-1">
+    <h2 className="text-3xl md:text-5xl font-bold text-primary">
+      Generate High-Quality SRS Documents — Instantly with AI.
+    </h2>
+    <p className="text-lg text-muted-foreground">
+      Our SRS Generation Platform helps you create precise, well-structured, and
+      professional Software Requirement Specifications in minutes — saving time
+      and ensuring clarity for your development team and stakeholders.
+    </p>
+    <Link href="/generate">
+      <ShimmerButton className="shadow-2xl">
+        <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+          Generate My SRS
+        </span>
+      </ShimmerButton>
+    </Link>
+  </div>
 
-    {/* Image Section */}
-    <div className="md:w-1/2 mt-10 md:mt-0 order-1 md:order-2 flex justify-center">
-        <Image
-            src={gtmIllustration} // Replace with your GTM strategy illustration path
-            alt="AI-Powered Go-To-Market Strategy"
-            className="w-full max-w-md h-96 object-cover"
-            width={10}
-            height={10}
-            unoptimized
-        />
-    </div>
+  {/* Image Section */}
+  <div className="md:w-1/2 mt-10 md:mt-0 order-1 md:order-2 flex justify-center">
+    <Image
+      src={srsIllustration} // Replace with your SRS illustration path
+      alt="AI-Powered SRS Generation"
+      className="w-full max-w-md h-96 object-cover"
+      width={10}
+      height={10}
+      unoptimized
+    />
+  </div>
 </section>
+
 
 
             <section className="mx-4 mt-20 md:mx-36">
@@ -259,115 +266,135 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className="px-4 md:px-36 mt-20">
-    <Accordion
-        type="single"
-        collapsible
-        className="w-full"
-        defaultValue="item-1"
-    >
-        <h1 className="text-4xl font-bold">FAQ&apos;S</h1>
+           <section className="px-4 md:px-36 mt-20">
+  <Accordion
+    type="single"
+    collapsible
+    className="w-full"
+    defaultValue="item-1"
+  >
+    <h1 className="text-4xl font-bold">FAQ&apos;S</h1>
 
-        <AccordionItem value="item-1">
-            <AccordionTrigger>
-                1. What is Entrepreneur Copilot?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-                <p>
-                    Entrepreneur Copilot is an AI-powered platform that helps startup founders instantly create, refine, and execute robust go-to-market (GTM) strategies. It analyzes your idea, market, and target audience to deliver a personalized plan for launching and scaling successfully.
-                </p>
-            </AccordionContent>
-        </AccordionItem>
+    <AccordionItem value="item-1">
+      <AccordionTrigger>
+        1. What is the SRS Generation Platform?
+      </AccordionTrigger>
+      <AccordionContent className="flex flex-col gap-4 text-balance">
+        <p>
+          The SRS Generation Platform is an AI-powered tool that helps you
+          create professional Software Requirement Specification (SRS) documents
+          instantly. It ensures your requirements are clear, structured, and
+          ready for developers and stakeholders.
+        </p>
+      </AccordionContent>
+    </AccordionItem>
 
-        <AccordionItem value="item-2">
-            <AccordionTrigger>
-                2. How does it work?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-                <p>
-                    Simply describe your startup idea and industry. The platform uses AI and real-time market data to recommend customer profiles, competitive positioning, acquisition strategies, and an actionable GTM roadmap tailored to your business.
-                </p>
-            </AccordionContent>
-        </AccordionItem>
+    <AccordionItem value="item-2">
+      <AccordionTrigger>
+        2. How does it work?
+      </AccordionTrigger>
+      <AccordionContent className="flex flex-col gap-4 text-balance">
+        <p>
+          You simply provide project details, functional and non-functional
+          requirements, and user roles. The platform organizes this information
+          into a complete, industry-standard SRS document with diagrams and
+          models if needed.
+        </p>
+      </AccordionContent>
+    </AccordionItem>
 
-        <AccordionItem value="item-3">
-            <AccordionTrigger>
-                3. What kind of businesses can use it?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-                <p>
-                    Entrepreneur Copilot works for solo founders, early-stage startups, accelerators, incubators, and even established businesses entering new markets or pivoting their GTM approach.
-                </p>
-            </AccordionContent>
-        </AccordionItem>
+    <AccordionItem value="item-3">
+      <AccordionTrigger>
+        3. Who can use it?
+      </AccordionTrigger>
+      <AccordionContent className="flex flex-col gap-4 text-balance">
+        <p>
+          It’s designed for software developers, product managers, startups,
+          freelancers, and enterprises who need clear documentation before
+          starting development. Students and educators can also use it for
+          academic projects.
+        </p>
+      </AccordionContent>
+    </AccordionItem>
 
-        <AccordionItem value="item-4">
-            <AccordionTrigger>
-                4. Does it use real market data?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-                <p>
-                    Yes. The platform integrates real-time market insights, industry trends, and competitive data to ensure your GTM strategy reflects the most up-to-date opportunities and challenges.
-                </p>
-            </AccordionContent>
-        </AccordionItem>
+    <AccordionItem value="item-4">
+      <AccordionTrigger>
+        4. Does it include diagrams and visuals?
+      </AccordionTrigger>
+      <AccordionContent className="flex flex-col gap-4 text-balance">
+        <p>
+          Yes. The platform can automatically generate use-case diagrams, data
+          flow diagrams, and system models to enhance clarity and improve
+          communication with your team.
+        </p>
+      </AccordionContent>
+    </AccordionItem>
 
-        <AccordionItem value="item-5">
-            <AccordionTrigger>
-                5. Can it help with customer targeting?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-                <p>
-                    Absolutely. Entrepreneur Copilot recommends detailed ideal customer profiles (ICPs) and segments based on demographics, behavior, and purchase patterns, so your outreach is focused and effective.
-                </p>
-            </AccordionContent>
-        </AccordionItem>
+    <AccordionItem value="item-5">
+      <AccordionTrigger>
+        5. Can I customize the generated SRS?
+      </AccordionTrigger>
+      <AccordionContent className="flex flex-col gap-4 text-balance">
+        <p>
+          Absolutely. You can edit, refine, and update any part of the generated
+          document to ensure it matches your exact requirements.
+        </p>
+      </AccordionContent>
+    </AccordionItem>
 
-        <AccordionItem value="item-6">
-            <AccordionTrigger>
-                6. Does it suggest acquisition and growth strategies?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-                <p>
-                    Yes. The platform generates channel recommendations, outreach ideas, content strategies, and growth initiatives, so you have a clear execution plan for acquiring and retaining customers.
-                </p>
-            </AccordionContent>
-        </AccordionItem>
+    <AccordionItem value="item-6">
+      <AccordionTrigger>
+        6. In what formats can I export the SRS?
+      </AccordionTrigger>
+      <AccordionContent className="flex flex-col gap-4 text-balance">
+        <p>
+          You can export your SRS in professional formats like PDF and DOCX.
+          This makes it easy to share with your team, clients, or professors.
+        </p>
+      </AccordionContent>
+    </AccordionItem>
 
-        <AccordionItem value="item-7">
-            <AccordionTrigger>
-                7. Can it track my GTM progress?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-                <p>
-                    Yes. You can track execution milestones, measure results, and receive AI-driven optimization tips to adapt your GTM strategy as you go.
-                </p>
-            </AccordionContent>
-        </AccordionItem>
+    <AccordionItem value="item-7">
+      <AccordionTrigger>
+        7. Does it support both functional and non-functional requirements?
+      </AccordionTrigger>
+      <AccordionContent className="flex flex-col gap-4 text-balance">
+        <p>
+          Yes. The platform covers everything from system features and user
+          interactions to performance, security, scalability, and usability
+          requirements.
+        </p>
+      </AccordionContent>
+    </AccordionItem>
 
-        <AccordionItem value="item-8">
-            <AccordionTrigger>
-                8. Is Entrepreneur Copilot only for tech startups?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-                <p>
-                    Not at all. It works for startups and businesses in any industry — from SaaS and e-commerce to manufacturing, services, and offline businesses — as long as you need a GTM plan.
-                </p>
-            </AccordionContent>
-        </AccordionItem>
+    <AccordionItem value="item-8">
+      <AccordionTrigger>
+        8. Is it only for large projects?
+      </AccordionTrigger>
+      <AccordionContent className="flex flex-col gap-4 text-balance">
+        <p>
+          Not at all. Whether you’re documenting a small app, a university
+          project, or an enterprise system, the platform adapts to your project
+          size and complexity.
+        </p>
+      </AccordionContent>
+    </AccordionItem>
 
-        <AccordionItem value="item-9">
-            <AccordionTrigger>
-                9. Is there a free version?
-            </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-                <p>
-                    Core features like idea analysis and basic GTM planning are free. Advanced features — such as detailed market reports, custom acquisition plans, and progress tracking — may require a paid subscription.
-                </p>
-            </AccordionContent>
-        </AccordionItem>
-    </Accordion>
+    <AccordionItem value="item-9">
+      <AccordionTrigger>
+        9. Is there a free version?
+      </AccordionTrigger>
+      <AccordionContent className="flex flex-col gap-4 text-balance">
+        <p>
+          Yes. You can generate basic SRS documents for free. Advanced features
+          like auto-generated diagrams, collaboration tools, and premium export
+          options may require a paid subscription.
+        </p>
+      </AccordionContent>
+    </AccordionItem>
+  </Accordion>
 </section>
+
 
         </main>
     );
